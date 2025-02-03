@@ -1,5 +1,3 @@
-"use client";
-
 import {
   Button,
   Form,
@@ -8,21 +6,15 @@ import {
   SelectItem,
   Textarea,
 } from "@heroui/react";
-import { useActionState } from "react";
-import { createDataAction } from "../_hooks/useCreate";
-import { revalidatePath } from "next/cache";
 
 export default function Page() {
-  const [state, formAction, pending] = useActionState(createDataAction, null);
-
-  console.log(state);
   return (
     <div className="container mx-auto p-4 mt-10 space-y-6">
       <section>
-        <h3 className="text-2xl font-bold">Tambah Data</h3>
-        <p>Masukan data baru</p>
+        <h3 className="text-2xl font-bold">Update Data</h3>
+        <p>Perbaiki bila ada kesalahan</p>
       </section>
-      <Form className="w-full space-y-8" action={formAction}>
+      <Form className="w-full space-y-8">
         <Input
           isRequired
           errorMessage="Please enter a valid nama"
@@ -32,21 +24,6 @@ export default function Page() {
           placeholder="Masukan nama"
           type="nama"
         />
-
-        <Select
-          isRequired
-          errorMessage="Please select a gender"
-          label="Gender"
-          labelPlacement="outside"
-          name="gender"
-          placeholder="Pilih gender">
-          <SelectItem key="laki-laki" value="laki-laki">
-            Laki-laki
-          </SelectItem>
-          <SelectItem key="perempuan" value="perempuan">
-            Perempuan
-          </SelectItem>
-        </Select>
 
         <Input
           isRequired
@@ -78,10 +55,8 @@ export default function Page() {
           type="alamat"
         />
 
-        {state?.message ? <div>{state.message}</div> : null}
-
-        <Button type="submit" disabled={pending} variant="bordered">
-          Submit
+        <Button type="submit" variant="bordered">
+          Update
         </Button>
       </Form>
     </div>

@@ -1,6 +1,7 @@
 import { API_URL } from "@/constants/api-url";
 import { Button } from "@heroui/react";
 import Link from "next/link";
+import { DeleteDataAction } from "./delete-book";
 
 export const ListBook = async () => {
   const res = await fetch(API_URL);
@@ -25,8 +26,7 @@ export const ListBook = async () => {
         {data.data.map((item, index) => (
           <div
             className="grid grid-cols-6 gap-4 border-b border-gray-200 p-4"
-            key={index}
-          >
+            key={index}>
             <div>{item.nama}</div>
             <div>{item.gender}</div>
             <div>{item.no_hp}</div>
@@ -38,12 +38,12 @@ export const ListBook = async () => {
                   View
                 </Button>
               </Link>
-              <Button size="sm" color="warning" className="font-bold">
-                Edit
-              </Button>
-              <Button size="sm" color="danger" className="font-bold">
-                Delete
-              </Button>
+              <Link href={`/booking/edit`}>
+                <Button size="sm" color="warning" className="font-bold">
+                  Edit
+                </Button>
+              </Link>
+              <DeleteDataAction id={item._id} />
             </div>
           </div>
         ))}
