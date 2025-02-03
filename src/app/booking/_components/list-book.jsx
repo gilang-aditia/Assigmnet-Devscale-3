@@ -26,7 +26,8 @@ export const ListBook = async () => {
         {data.data.map((item, index) => (
           <div
             className="grid grid-cols-6 gap-4 border-b border-gray-200 p-4"
-            key={index}>
+            key={index}
+          >
             <div>{item.nama}</div>
             <div>{item.gender}</div>
             <div>{item.no_hp}</div>
@@ -35,21 +36,7 @@ export const ListBook = async () => {
             <div className="flex space-x-2" key={item._id}>
               <Link href={`/booking/${item._id}`}>
                 <Button size="sm" color="primary" className="font-bold">
-                  View
-                </Button>
-              </Link>
-              <Link
-                href={{
-                  pathname: `/booking/edit/${item._id}`,
-                  query: {
-                    id: item._id,
-                    nama: item.nama,
-                    no_hp: item.no_hp,
-                    alamat: item.alamat,
-                  },
-                }}>
-                <Button size="sm" color="warning" className="font-bold">
-                  Edit
+                  Detail
                 </Button>
               </Link>
 

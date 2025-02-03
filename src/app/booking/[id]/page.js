@@ -1,3 +1,5 @@
+import { BookingUpdate } from "../_components/edit-book";
+
 export default async function Page({ params }) {
   const { id } = await params;
   const res = await fetch(
@@ -34,6 +36,15 @@ export default async function Page({ params }) {
         <h4 className="text-xl font-bold">Address:</h4>
         <p className="text-lg">{data.alamat}</p>
       </div>
+
+      <BookingUpdate
+        id={data._id}
+        nama={data.nama}
+        gender={data.gender}
+        no_hp={data.no_hp}
+        no_identitas={data.no_identitas}
+        alamat={data.alamat}
+      />
     </main>
   );
 }
