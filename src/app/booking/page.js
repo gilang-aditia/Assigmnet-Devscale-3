@@ -3,7 +3,7 @@ import { ListBook } from "./_components/list-book";
 import { UserIcon } from "@/components/icons";
 import Link from "next/link";
 
-export default function Page() {
+export default function Home() {
   return (
     <main className="container mx-auto p-4 space-y-6">
       <section>
