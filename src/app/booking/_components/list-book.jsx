@@ -38,11 +38,21 @@ export const ListBook = async () => {
                   View
                 </Button>
               </Link>
-              <Link href={`/booking/edit`}>
+              <Link
+                href={{
+                  pathname: `/booking/edit/${item._id}`,
+                  query: {
+                    id: item._id,
+                    nama: item.nama,
+                    no_hp: item.no_hp,
+                    alamat: item.alamat,
+                  },
+                }}>
                 <Button size="sm" color="warning" className="font-bold">
                   Edit
                 </Button>
               </Link>
+
               <DeleteDataAction id={item._id} />
             </div>
           </div>

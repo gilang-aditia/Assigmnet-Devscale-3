@@ -10,7 +10,6 @@ import {
 } from "@heroui/react";
 import { useActionState } from "react";
 import { createDataAction } from "../_hooks/useCreate";
-import { revalidatePath } from "next/cache";
 
 export default function Page() {
   const [state, formAction, pending] = useActionState(createDataAction, null);
