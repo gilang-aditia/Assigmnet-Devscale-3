@@ -7,6 +7,8 @@ import {
   SelectItem,
   Textarea,
 } from "@heroui/react";
+import { revalidatePath } from "next/cache";
+import { redirect } from "next/navigation";
 import React from "react";
 
 export const BookingUpdate = ({
@@ -37,6 +39,7 @@ export const BookingUpdate = ({
     console.log(id);
 
     revalidatePath(`/booking/${id}`);
+    redirect(`/booking`);
   }
 
   return (
